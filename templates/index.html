@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Chat pape</title>
+   	<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+	<h1> welcome, {{user_name}} </h1>
+	<div id='box'>
+		<div id='box-msg'>
+			{% for i in chat_messages %}
+			<p><b>{{ i.nam }}:</b> {{ i.msg }}</p>
+			{% endfor %}
+		</div>
+		<form action='/message' method='POST'>
+		
+		<div id='text'>
+			<input id='msg' type='text' name='msg_input'>
+			<button id='snd-btn' type='submit'>Send</button> 
+		</div>
+		</form>
+	</div>
+		
+</body>
+</html>
+
